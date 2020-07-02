@@ -18,17 +18,15 @@ plugins {
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion getExtOrIntegerDefault('compileSdkVersion')
-    buildToolsVersion getExtOrDefault('buildToolsVersion')
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         multiDexEnabled true
-        minSdkVersion getExtOrIntegerDefault('minSdkVersion')
-        targetSdkVersion getExtOrIntegerDefault('targetSdkVersion')
-        // minSdkVersion 16
-        // targetSdkVersion 22
-        versionCode 3
-        versionName "1.0.3"
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 5
+        versionName "1.0.5"
     }
     lintOptions {
         disable 'GradleCompatible'
