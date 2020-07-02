@@ -12,6 +12,10 @@ import java.util.List;
 @SuppressWarnings("unused")
 public class RNFingerprintCybersourcePackage implements ReactPackage {
 
+    public RNCybersourceDeviceFingerprintPackage() {
+      super();
+    }
+
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
