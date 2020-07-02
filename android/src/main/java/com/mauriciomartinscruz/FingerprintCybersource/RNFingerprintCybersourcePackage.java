@@ -12,7 +12,7 @@ import java.util.List;
 @SuppressWarnings("unused")
 public class RNFingerprintCybersourcePackage implements ReactPackage {
 
-    public RNCybersourceDeviceFingerprintPackage() {
+    public RNFingerprintCybersourcePackage() {
       super();
     }
 

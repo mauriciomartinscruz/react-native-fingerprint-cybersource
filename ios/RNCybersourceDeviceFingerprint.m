@@ -1,9 +1,6 @@
 //
 //  RNFingerprintCybersource.m
 //
-//  Created by Estuardo Estrada on 12/16/18.
-//  Copyright © 2018. All rights reserved.
-//
 
 #import "RNFingerprintCybersource.h"
 #import <React/RCTLog.h>
