@@ -21,6 +21,8 @@ android {
         targetSdkVersion 28
         versionCode 7
         versionName "1.0.7"
+      consumerProguardFiles
+      multiDexEnabled true
     }
     lintOptions {
         abortOnError false
@@ -37,8 +39,8 @@ dependencies {
   api 'com.facebook.react:react-native:+'
   //compile fileTree(include: ['*.jar','*.aar'], dir: 'TMXProfiling-6.0-138')
   // compile fileTree(include: ['*.jar','*.aar'], dir: 'TMXProfilingConnections-6.0-138')
-   api project(":TMXProfilingConnections-6.0-138")
-   api project(":TMXProfiling-6.0-138")
+  api project(":TMXProfiling-6.0-138")
+  api project(":TMXProfilingConnections-6.0-138")
 //  api fileTree(dir: 'TMXProfiling-6.0-138', include: ['*.aar'])
 //  api fileTree(dir: 'TMXProfilingConnections-6.0-138', include: ['*.aar'])
   // compile files('TMXProfiling-6.0-138/TMXProfiling-6.0-138.aar')
