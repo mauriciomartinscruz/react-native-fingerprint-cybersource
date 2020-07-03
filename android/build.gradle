@@ -40,7 +40,7 @@ repositories {
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
-    implementation fileTree(dir: 'libs', include: ['*.aar'])
+    // implementation fileTree(dir: 'libs', include: ['*.aar'])
     // implementation files('libs/TMXProfiling-6.0-138.aar')
     // implementation files('libs/TMXProfilingConnections-6.0-138.aar')
 }
