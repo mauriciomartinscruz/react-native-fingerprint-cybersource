@@ -1,18 +1,12 @@
 
 buildscript {
-    if (project == rootProject) {
         repositories {
             jcenter()
         }
 
         dependencies {
-            classpath('com.android.tools.build:gradle:3.5.2')
+          classpath 'com.android.tools.build:gradle:2.3.3'
         }
-    }
-}
-
-plugins {
-  id "io.invertase.gradle.build" version "1.4"
 }
 
 apply plugin: 'com.android.library'
@@ -22,14 +16,12 @@ android {
     buildToolsVersion "28.0.3"
 
     defaultConfig {
-        multiDexEnabled true
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 7
         versionName "1.0.7"
     }
     lintOptions {
-        disable 'GradleCompatible'
         abortOnError false
     }
 }
@@ -39,9 +31,11 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.facebook.react:react-native:+'
-    // implementation fileTree(dir: 'libs', include: ['*.aar'])
-    // implementation files('libs/TMXProfiling-6.0-138.aar')
-    // implementation files('libs/TMXProfilingConnections-6.0-138.aar')
+  compile 'com.facebook.react:react-native:+'
+  compile project(":TMXProfilingConnections-6.0-138")
+  compile project(":TMXProfiling-6.0-138")
+  // compile fileTree(dir: 'TMXProfiling-6.0-138', include: ['*.aar'])
+  // compile fileTree(dir: 'TMXProfilingConnections-6.0-138', include: ['*.aar'])
+  // compile files('libs/TMXProfiling-6.0-138.aar')
+  // compile files('libs/TMXProfilingConnections-6.0-138.aar')
 }
-  
