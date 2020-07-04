@@ -39,10 +39,13 @@ dependencies {
   api 'com.facebook.react:react-native:+'
   //compile fileTree(include: ['*.jar','*.aar'], dir: 'TMXProfiling-6.0-138')
   // compile fileTree(include: ['*.jar','*.aar'], dir: 'TMXProfilingConnections-6.0-138')
-  api project(":TMXProfiling-6.0-138")
-  api project(":TMXProfilingConnections-6.0-138")
+//  implementation project(path: ":TMXProfiling-6.0-138")
+//  implementation project(path: ":TMXProfilingConnections-6.0-138")
+  implementation files("TMXProfiling-6.0-138/TMXProfiling-6.0-138.aar")
+  implementation files("TMXProfilingConnections-6.0-138/classes.jar")
+//  implementation project(path: ":${nameCleansed}")
 //  api fileTree(dir: 'TMXProfiling-6.0-138', include: ['*.aar'])
 //  api fileTree(dir: 'TMXProfilingConnections-6.0-138', include: ['*.aar'])
-  // compile files('TMXProfiling-6.0-138/TMXProfiling-6.0-138.aar')
-  // compile files('TMXProfilingConnections-6.0-138/TMXProfilingConnections-6.0-138.aar')
+//   api files('TMXProfiling-6.0-138/TMXProfiling-6.0-138.aar')
+//   api files('TMXProfilingConnections-6.0-138/TMXProfilingConnections-6.0-138.aar')
 }
