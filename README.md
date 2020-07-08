@@ -9,7 +9,7 @@
 
 #### iOS
 
-1. Add pod 'RNFingerprintCybersource', :path => '../node_modules/react-native-fingerprint-cybersource/ios' to your Podfile
+1. Add pod 'RNFingerprintCybersource', :podspec => "../node_modules/react-native-fingerprint-cybersource/ios/RNCybersourceDeviceFingerprint.podspec"
 2. Run pod install from ios folder
 3. Run your project (`Cmd+R`)<
 
