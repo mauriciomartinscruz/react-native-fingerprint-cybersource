@@ -1,15 +1,15 @@
 //
-//  RNFingerprintCybersource.m
+//  RNCybersourceDeviceFingerprint.m
 //
 
-#import "RNFingerprintCybersource.h"
+#import "RNCybersourceDeviceFingerprint.h"
 #import <React/RCTLog.h>
 #import <TMXProfiling/TMXProfiling.h>
 #import <TMXProfilingConnections/TMXProfilingConnections.h>
 
 static NSString *const kRejectCode = @"CyberSourceSDKModule";
 
-@implementation RNFingerprintCybersource{
+@implementation RNCybersourceDeviceFingerprint{
     TMXProfiling *_defender;
 }
 
