@@ -1,5 +1,5 @@
 //
-//  RNFingerprintCybersource.h
+//  RNCybersourceDeviceFingerprint.h
 //
 //
 
@@ -9,7 +9,6 @@
 #import <React/RCTBridgeModule.h>
 #endif
 
-
-@interface RNFingerprintCybersource : NSObject <RCTBridgeModule>
+@interface RNCybersourceDeviceFingerprint : NSObject <RCTBridgeModule>
 
 @end
