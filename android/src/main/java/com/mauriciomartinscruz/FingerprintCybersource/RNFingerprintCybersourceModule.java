@@ -1,5 +1,7 @@
 package com.mauriciomartinscruz.FingerprintCybersource;
 
+import android.util.Log;
+
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -14,13 +16,16 @@ import com.threatmetrix.TrustDefender.TMXProfilingOptions;
 import com.threatmetrix.TrustDefender.TMXEndNotifier;
 import com.threatmetrix.TrustDefender.TMXProfilingHandle.Result;
 
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class RNFingerprintCybersourceModule extends ReactContextBaseJavaModule {
 
   private static final String CYBERSOURCE_SDK = "RNFingerprintCybersource";
   private TMXProfiling _defender = null;
+  public String sessionStr = "";
 
   public RNFingerprintCybersourceModule(ReactApplicationContext reactContext) {
     super(reactContext);
@@ -41,13 +46,23 @@ public class RNFingerprintCybersourceModule extends ReactContextBaseJavaModule {
     _defender = TMXProfiling.getInstance();
 
     try {
+      Log.d("LOGFINGERPRINT", orgId);
+
+
       TMXConfig config = new TMXConfig()
-              .setOrgId(orgId)
-              .setContext(getReactApplicationContext());
+        .setOrgId(orgId)
+        .setFPServer("h.online-metrix.net")
+        .setProfileTimeout(20, TimeUnit.SECONDS)
+        .setContext(getReactApplicationContext());
+
+      Log.d("LOGFINGERPRINT", config.toString());
+
       _defender.init(config);
+      Log.d("LOGFINGERPRINT Init", _defender.toString());
     } catch (IllegalArgumentException exception) {
       promise.reject(CYBERSOURCE_SDK, "Invalid parameters");
     }
+
     promise.resolve(true);
   }
 
@@ -59,16 +74,21 @@ public class RNFingerprintCybersourceModule extends ReactContextBaseJavaModule {
     }
 
     List<String> list = new ArrayList<>();
+    sessionStr = "";
 
     int leni = attributes.size();
     for (int i = 0; i < leni; ++i) {
       String value = attributes.getString(i);
       if (value != null) {
+        sessionStr += value;
         list.add(value);
       }
     }
 
+    Log.d("LOGFINGERPRINT", list.toString());
+
     TMXProfilingOptions options = new TMXProfilingOptions().setCustomAttributes(list);
+    options.setSessionID(sessionStr);
     TMXProfiling.getInstance().profile(options, new CompletionNotifier(promise));
   }
 
@@ -82,6 +102,8 @@ public class RNFingerprintCybersourceModule extends ReactContextBaseJavaModule {
 
       @Override
       public void complete(Result result) {
+        Log.d("LOGFINGERPRINT", result.getSessionID());
+
         WritableMap map = new WritableNativeMap();
         map.putString("sessionId", result.getSessionID());
         map.putInt("status", result.getStatus().ordinal());
